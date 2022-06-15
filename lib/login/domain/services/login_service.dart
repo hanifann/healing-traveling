@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:healing_travelling/login/domain/repositories/login_repository.dart';
 import 'package:healing_travelling/login/models/user_model.dart';
 import 'package:healing_travelling/utils/config.dart';
@@ -20,7 +21,8 @@ class LoginService implements LoginRepository {
         }
       );
       if(response.statusCode == 200){
-        return Right(userFromJson(jsonEncode(response.data)));
+        final decoder = await compute(userFromJson, jsonEncode(response.data));
+        return Right(decoder);
       } else {
         throw response.statusMessage.toString();
       }
