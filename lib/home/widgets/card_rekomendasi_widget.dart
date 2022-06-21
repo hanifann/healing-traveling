@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:healing_travelling/artikel/domain/models/rekomendasi_model.dart';
-import 'package:healing_travelling/utils/config.dart';
 import 'package:healing_travelling/widget/custom_text_widget.dart';
 import 'package:supercharged/supercharged.dart';
 
@@ -10,7 +9,7 @@ class CardRekomendasiWidget extends StatelessWidget {
     required this.rekomendasi,
   }) : super(key: key);
   
-  final Datum rekomendasi;
+  final Rekomendasi rekomendasi;
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +27,10 @@ class CardRekomendasiWidget extends StatelessWidget {
             height: 120,
             width: 200,
             decoration: BoxDecoration(
+              color: Colors.grey[400],
               borderRadius: BorderRadius.circular(8),
               image: DecorationImage(
-                image: AssetImage('assets/images/wisata.jpg'),
+                image: NetworkImage(rekomendasi.image!),
                 fit: BoxFit.cover
               ),
               boxShadow: [
