@@ -99,7 +99,7 @@ class _HomeViewState extends State<HomeView> {
               primary: false,
               itemCount: 6,
               itemBuilder: (context, index){
-                return CardRekomendasiWidget(rekomendasi: Datum(title: '', content: '', image: ''));
+                return CardRekomendasiWidget(rekomendasi: Rekomendasi(title: '', content: '', image: 'https://via.placeholder.com/150'));
               }
             ),
           );
@@ -192,7 +192,34 @@ class _HomeViewState extends State<HomeView> {
     return BlocBuilder<BannerBloc, BannerState>(
       builder: (context, state) {
         if(state is BannerSuccess){
-          return CarouselWidget(length: state.banner.length,);
+          return Container(
+            height: 160,
+            margin: EdgeInsets.only(top: 28),
+            decoration: BoxDecoration(
+              color: Colors.grey[200]
+            ),
+            width: MediaQuery.of(context).size.width,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              padding: EdgeInsets.symmetric(horizontal: 24),
+              itemBuilder: (context, index){
+                return Container(
+                  width: 300,
+                  height: 161,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.grey[400],
+                    image: DecorationImage(
+                      image: NetworkImage(state.banner[index].image!),
+                      fit: BoxFit.cover
+                    )
+                  ),
+                );
+              }, 
+              separatorBuilder: (_,__) => SizedBox(width: 10,), 
+              itemCount: state.banner.length
+            ),
+          );
         } else if(state is BannerFailed){
           return Center(child: Text('get banner failed ${state.message}'));
         } else {
