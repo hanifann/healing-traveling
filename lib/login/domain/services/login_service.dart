@@ -14,7 +14,7 @@ class LoginService implements LoginRepository {
   Future<Either<String, User>> postLogin(String email, String password) async {
     try {
       final response = await _dio.postUri(
-        Uri.http(url, '/api/login'),
+        Uri.https(url, '/api/login'),
         data: {
           'email': email,
           'password': password

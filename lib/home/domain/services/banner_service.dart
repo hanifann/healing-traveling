@@ -15,7 +15,7 @@ class BannerService implements BannerRepository {
   Future<Either<String, List<Banner>>> getBanner(String? token) async {
     try {
       final response = await _dio.getUri(
-        Uri.http(url, '/api/banner'),
+        Uri.https(url, '/api/banner'),
         options: Options(
           headers: {
             'Authorization': 'Bearer $token'
