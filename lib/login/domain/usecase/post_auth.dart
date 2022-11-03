@@ -5,10 +5,10 @@ import 'package:healing_travelling/core/usecases/usecase.dart';
 import 'package:healing_travelling/login/domain/entity/user.dart';
 import 'package:healing_travelling/login/domain/repositories/user_repository.dart';
 
-class PostAuth extends UseCase<User, Params>{
+class PostAuthData extends UseCase<User, Params>{
   final UserRepository repository;
 
-  PostAuth(this.repository);
+  PostAuthData(this.repository);
 
   @override
   Future<Either<Failure, User>?> call(
