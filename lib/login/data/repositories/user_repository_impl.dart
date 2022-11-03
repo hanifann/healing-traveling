@@ -1,3 +1,4 @@
+import 'package:healing_travelling/core/error/exception.dart';
 import 'package:healing_travelling/core/platform/network_info.dart';
 import 'package:healing_travelling/login/data/datasource/user_remote_data_source.dart';
 import 'package:healing_travelling/login/domain/entity/user.dart';
@@ -16,8 +17,15 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<Either<Failure, User>>? postAuth(String? email, String? password) async {
-    networkInfo.isConnected;
-    return Right(await remoteDataSource.getUserData(email, password)!);
+    if(await networkInfo.isConnected){
+      try {
+        final response = await remoteDataSource.getUserData(email, password);
+        return Right(response!);
+      } on ServerException {
+        return Left(ServerFailure());
+      }
+    } else {
+      return Left(ServerFailure());
+    }
   }
-  
 }
