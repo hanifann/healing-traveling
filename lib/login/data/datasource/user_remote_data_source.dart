@@ -17,7 +17,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   @override
   Future<UserDataModel>? getUserData(String? email, String? password) async {
     final response = await client.post(
-      Uri.https(url), 
+      Uri.https(url, 'api/login'), 
       body: {
         'email': email,
         'password': password
