@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:healing_travelling/login/screen/login_screen.dart';
+import 'package:healing_travelling/login/presentation/pages/login_screen.dart';
 import 'package:healing_travelling/register/domain/bloc/register_bloc.dart';
 import 'package:healing_travelling/register/domain/models/register_model.dart';
 import 'package:healing_travelling/register/domain/services/register_service.dart';

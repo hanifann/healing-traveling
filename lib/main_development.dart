@@ -14,7 +14,7 @@ import 'injection_container.dart' as di;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SharedPreferenceSingleton.init();
+  // await SharedPreferenceSingleton.init();
   timeago.setLocaleMessages('id', timeago.IdMessages());
   await di.init();
   bootstrap(() => const App());

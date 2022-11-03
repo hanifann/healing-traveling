@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healing_travelling/auth/bloc/auth_bloc.dart';
-import 'package:healing_travelling/login/screen/login_screen.dart';
+import 'package:healing_travelling/login/presentation/pages/login_screen.dart';
 import 'package:healing_travelling/navbar/screens/navbar_screen.dart';
 
 class AuthScreen extends StatelessWidget {

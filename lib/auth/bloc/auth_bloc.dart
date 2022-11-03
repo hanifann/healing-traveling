@@ -14,7 +14,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     AuthEventCheckAuth event,
     Emitter<AuthState> emit,
   ) async {
-    var _token = SharedPreferenceSingleton.checkKey('token');
+    var _token = false;
 
     if(_token == true){
       emit(AuthAuthenticated());
