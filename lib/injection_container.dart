@@ -14,7 +14,9 @@ final sl = GetIt.instance;
 Future<void> init() async {
   sl.registerFactory(() => LoginBloc(postAuth: sl()));
 
-  sl.registerSingleton(() => PostAuth(sl()));
+
+  //usecase
+  sl.registerLazySingleton(() => PostAuth(sl()));
 
   //repository
   sl.registerLazySingleton<UserRepository>(
