@@ -7,3 +7,4 @@ const Color kPrimaryDarkColor = Color.fromRGBO(181, 209, 226, 1);
 const Color kPrimaryLightColor = Color.fromRGBO(239, 249, 255, 1);
 const Color kPrimaryBackgroundColor = Color.fromRGBO(246, 246, 246, 1);
 const Color kGreyColor = Color.fromRGBO(164, 164, 164, 1);
+const Color kTextColor = Color.fromRGBO(92, 90, 90, 1);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healing_travelling/artikel/domain/models/rekomendasi_model.dart';
+import 'package:healing_travelling/themes/color_themes.dart';
 import 'package:healing_travelling/widget/custom_text_widget.dart';
 import 'package:supercharged/supercharged.dart';
 
@@ -14,8 +15,7 @@ class CardRekomendasiWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(8),
-      padding: EdgeInsets.fromLTRB(14, 12, 14, 12),
+      padding: EdgeInsets.fromLTRB(15, 12, 15, 12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8)
@@ -45,10 +45,11 @@ class CardRekomendasiWidget extends StatelessWidget {
           SizedBox(height: 15,),
           CustomTextWidget(
             text: rekomendasi.title!,
-            color: Colors.black,
+            color: kTextColor,
             fontWeight: FontWeight.w600,
             fontSize: 15,
           ),
+          SizedBox(height: 3,),
           Row(
             children: [
               Image.asset('assets/images/placeholder.png', height: 12, width: 12, color: Color.fromRGBO(164, 164, 164, 1),),

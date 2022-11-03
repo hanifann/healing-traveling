@@ -17,6 +17,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   flutter_localizations:
     sdk: flutter
+  flutter_native_splash: ^2.1.6
   fluttertoast: ^8.0.9
   intl: ^0.17.0
   shared_preferences: ^2.0.15
@@ -26,7 +27,7 @@ dependencies:
 
 dev_dependencies:
   bloc_test: ^9.0.2
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
   mocktail: ^0.2.0
@@ -36,16 +37,24 @@ flutter:
   generate: true
   assets:
     - assets/images/
+  # fonts:
+  #   - family: Hind
+  #     fonts:
+  #       - asset: assets/fonts/Hind-Regular.ttf
+  #         weight: 400
+  #       - asset: assets/fonts/Hind-Light.ttf
+  #         weight: 300
+  #       - asset: assets/fonts/Hind-Medium.ttf
+  #         weight: 500
+  #       - asset: assets/fonts/Hind-SemiBold.ttf
+  #         weight: 600
+  #       - asset: assets/fonts/Hind-Bold.ttf
+  #         weight: 700
   fonts:
-    - family: Hind
+    - family: LexendDeca
       fonts:
-        - asset: assets/fonts/Hind-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/Hind-Light.ttf
-          weight: 300
-        - asset: assets/fonts/Hind-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/Hind-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/Hind-Bold.ttf
-          weight: 700
+        - asset: assets/fonts/LexendDeca-Regular.ttf
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: "assets/images/logo.png"

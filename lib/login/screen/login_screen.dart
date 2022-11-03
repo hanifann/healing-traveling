@@ -150,7 +150,7 @@ class _LoginViewState extends State<LoginView> {
     return CustomTextFieldWidget(
       hintText: 'Email',
       prefixIcon: Icons.mail,
-      textInputType: TextInputType.phone,
+      textInputType: TextInputType.emailAddress,
       controller: _telpController,
     );
   }

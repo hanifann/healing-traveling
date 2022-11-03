@@ -67,19 +67,23 @@ class _HomeViewState extends State<HomeView> {
       builder: (context, state) {
         if(state.status == RekomendasiStatus.success){
           return GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 6/7
+            padding: EdgeInsets.all(16),
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: MediaQuery.of(context).size.width / 2,
+              mainAxisExtent: 200,
+              crossAxisSpacing: 20,
+              mainAxisSpacing: 20
             ),
             shrinkWrap: true,
             primary: false,
             itemCount: 6,
             itemBuilder: (context, index){
               return GestureDetector(
-                child: CardRekomendasiWidget(rekomendasi: state.rekomendasi[index]),
+                //tambah reverse untuk menampilkan data yang terbaru terlebih dahulu
+                child: CardRekomendasiWidget(rekomendasi: state.rekomendasi.reversed.toList()[index]),
                 onTap: ()=> Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (_) => DetailArtikelScreen(rekomendasi: state.rekomendasi[index],))
+                  MaterialPageRoute(builder: (_) => DetailArtikelScreen(rekomendasi: state.rekomendasi.reversed.toList()[index],))
                 ),
               );
             }
@@ -91,9 +95,12 @@ class _HomeViewState extends State<HomeView> {
             baseColor: Colors.grey[300]!,
             highlightColor: Colors.grey[100]!,
             child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 6/7
+              padding: EdgeInsets.all(16),
+              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: MediaQuery.of(context).size.width / 2,
+                mainAxisExtent: 230,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 20
               ),
               shrinkWrap: true,
               primary: false,
@@ -151,7 +158,7 @@ class _HomeViewState extends State<HomeView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomTextWidget(
-              text: 'Selamat datang',
+              text: greeting(),
               fontSize: 14,
               color: Colors.black,
             ),
@@ -231,6 +238,20 @@ class _HomeViewState extends State<HomeView> {
         }
       },
     );
+  }
+
+
+  //tambah fungsi greetings untuk menyapa pengguna sesuai jam
+  String greeting() {
+    var hour = DateTime.now().hour;
+    if(hour <= 10){
+      return 'Selamat pagi';
+    } else if(hour >= 11 && hour <= 14 ) {
+      return 'Selamat siang';
+    } else if(hour >= 15 && hour <= 18) {
+      return 'Selamat sore';
+    }
+    return 'Selamat malam';
   }
 }
 

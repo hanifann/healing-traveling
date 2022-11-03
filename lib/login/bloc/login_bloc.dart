@@ -30,6 +30,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         log('Login Success', name: 'login');
         await SharedPreferenceSingleton.setString('token', r.token!);
         await SharedPreferenceSingleton.setString('name', r.data!.name!);
+        await SharedPreferenceSingleton.setString('id', r.data!.id.toString());
         emit(LoginSuccess(r.token!));
       }
     );
