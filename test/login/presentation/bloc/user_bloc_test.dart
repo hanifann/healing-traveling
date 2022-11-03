@@ -5,7 +5,7 @@ import 'package:healing_travelling/login/domain/usecase/post_auth.dart';
 import 'package:healing_travelling/login/presentation/bloc/login_bloc.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockPostAuth extends Mock implements PostAuth {}
+class MockPostAuth extends Mock implements PostAuthData {}
 
 void main() {
   late LoginBloc bloc;

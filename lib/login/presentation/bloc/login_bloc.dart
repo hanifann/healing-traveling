@@ -19,7 +19,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   LoginState get initialState => LoginInitial();
 
-  final PostAuth postAuth;
+  final PostAuthData postAuth;
 
   _onPostLogin(
     PostLogin event,

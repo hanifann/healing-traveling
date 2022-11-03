@@ -16,11 +16,11 @@ Future<void> init() async {
 
 
   //usecase
-  sl.registerLazySingleton(() => PostAuth(sl()));
+  sl.registerLazySingleton(() => PostAuthData(sl()));
 
   //repository
   sl.registerLazySingleton<UserRepository>(
-    ()=> UserRepositoryImpl(remoteDataSource: sl(), networkInfo: sl())
+    ()=> UserRepositoryImpl(remoteDataSource: sl(), networkInfo: sl(), localDataSource: sl())
   );
 
   //data source
