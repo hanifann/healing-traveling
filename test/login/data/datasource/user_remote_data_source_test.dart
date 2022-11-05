@@ -28,7 +28,7 @@ void main() {
 
     test('should perform post requst on a URL with email and password as body', () async {
       //arrange
-      when(() => mockHttpClient.post(Uri.https(url), body: {
+      when(() => mockHttpClient.post(Uri.https(url, 'api/login'), body: {
         'email': tEmail,
         'password': tPassword
       })).thenAnswer((_) async => http.Response(fixture('user_response.json'), 200));
@@ -37,7 +37,7 @@ void main() {
       dataSource.getUserData(tEmail, tPassword);
 
       //assert
-      verify(() => mockHttpClient.post(Uri.https(url), 
+      verify(() => mockHttpClient.post(Uri.https(url, 'api/login'), 
       body: {
         'email': tEmail,
         'password': tPassword
@@ -46,7 +46,7 @@ void main() {
 
     test('should return User when the response code is 200 (success)', () async {
       //arrange
-      when(() => mockHttpClient.post(Uri.https(url), body: {
+      when(() => mockHttpClient.post(Uri.https(url, 'api/login'), body: {
         'email': tEmail,
         'password': tPassword
       })).thenAnswer((_) async => http.Response(fixture('user_response.json'), 200));
@@ -60,7 +60,7 @@ void main() {
 
     test('should throw serverException when the response code is 404 or other', () async {
       //arange
-      when(() => mockHttpClient.post(Uri.https(url), body: {
+      when(() => mockHttpClient.post(Uri.https(url, 'api/login'), body: {
         'email': tEmail,
         'password': tPassword
       })).thenAnswer((_) async => http.Response('Something went wrong', 404));
