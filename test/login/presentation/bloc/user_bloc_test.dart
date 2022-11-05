@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:healing_travelling/core/error/failures.dart';
 import 'package:healing_travelling/login/domain/entity/user.dart';
 import 'package:healing_travelling/login/domain/usecase/post_auth.dart';
 import 'package:healing_travelling/login/presentation/bloc/login_bloc.dart';
@@ -53,7 +54,7 @@ void main() {
 
        test('should emit [Loading, Error] when data is gotting data faiils', () async* {
         //arrange
-        when((() => mockPostAuth(Params(email: tEmail, password: tPassword)))).thenAnswer((_) async => Right(tUser));
+        when((() => mockPostAuth(Params(email: tEmail, password: tPassword)))).thenAnswer((_) async => Left(ServerFailure()));
         //assert later
         final expected = [
           LoginInitial(),
