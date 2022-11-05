@@ -23,7 +23,8 @@ class UserRepositoryImpl implements UserRepository {
     if(await networkInfo.isConnected){
       try {
         final response = await remoteDataSource.getUserData(email, password);
-        return Right(response!);
+        localDataSource.cachedUserData(response!);
+        return Right(response);
       } on ServerException {
         return Left(ServerFailure());
       }
